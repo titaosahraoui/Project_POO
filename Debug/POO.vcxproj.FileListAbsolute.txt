@@ -1,0 +1,5 @@
+C:\Users\sahra\source\repos\POO\Debug\POO.vcxproj.AssemblyReference.cache
+C:\Users\sahra\source\repos\POO\Debug\POO.MyForm.resources
+C:\Users\sahra\source\repos\POO\Debug\POO.Personnel.resources
+C:\Users\sahra\source\repos\POO\Debug\POO.vcxproj.GenerateResource.cache
+C:\Users\sahra\source\repos\POO\Debug\POO.exe

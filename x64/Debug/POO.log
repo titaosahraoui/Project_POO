@@ -1,0 +1,7 @@
+﻿  MyForm.cpp
+C:\Users\sahra\source\repos\POO\Commandes.h(582,21): warning C4101: 'ex' : variable locale non référencée
+C:\Users\sahra\source\repos\POO\Commandes.h(611,21): warning C4101: 'ex' : variable locale non référencée
+C:\Users\sahra\source\repos\POO\stock.h(522,21): warning C4101: 'ex' : variable locale non référencée
+C:\Users\sahra\source\repos\POO\Statistique.h(585): warning C4715: 'POO::MyForm4::GetTauxTVA' : les chemins de contrôle ne retournent pas tous une valeur
+  AssemblyInfo.obj : module MSIL détecté ; liens incrémentiels désactivés pour MSIL ; édition de liens complète en cours
+  POO.vcxproj -> C:\Users\sahra\source\repos\POO\x64\Debug\POO.exe
