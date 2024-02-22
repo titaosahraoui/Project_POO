@@ -12,9 +12,9 @@ namespace NS_Composants {
 		int ID_Client;
 		String^ Nom_Client;
 		String^ Prenom_Client;
-		String^ Adress_Client;
+		DateTime Date_de_naissance;
+		DateTime Date_du_prm_achat;
 		String^ Telephone_Client;
-		String^ Pays_Client;
 
 	public:
 		CLmapClient(void);
@@ -26,15 +26,15 @@ namespace NS_Composants {
 		void setID(int);
 		void setNom(String^);
 		void setPrenom(String^);
-		void setAdress(String^);
+		void setDateNaissance(DateTime);
+		void setDatePrmAchat(DateTime);
 		void setTelephone(String^);
-		void setPays(String^);
 		int getId(void);
 		String^ getNom(void);
 		String^ getPrenom(void);
-		String^ getAdress(void);
+		DateTime getDateNaissance(void);
 		String^ getTelephone(void);
-		String^ getPays(void);
+		DateTime getDatePrmAchat(void);
 	};
 
 }

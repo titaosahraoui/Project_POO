@@ -5,7 +5,7 @@ namespace NS_Composants
 {
 	CL_CAD::CL_CAD(void) {
 		this->rq_sql = "RIEN";
-		this->cnx = "Data Source=AHMED_SAHRAOUI\SQLEXPRESS;Initial Catalog=GESTION_DE_DONNE;Integrated Security=True";
+		this->cnx = "Data Source=AHMED_SAHRAOUI\\SQLEXPRESS;Initial Catalog=BaseDeDonnéesPoo;Integrated Security=True";
 		this->CNX = gcnew SqlConnection(this->cnx);
 		this->CMD = gcnew SqlCommand(this->rq_sql, this->CNX);
 		this->CMD->CommandType = CommandType::Text;

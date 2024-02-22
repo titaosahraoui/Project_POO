@@ -11,7 +11,11 @@ namespace NS_Composants {
 		int ID_Personnel;
 		String^ Nom_Personnel;
 		String^ Prenom_Personnel;
-		int Age_Personnel;
+		String^ Date_embauche;
+		String^ Date_de_naissance;
+		int ID_Superviseur;
+	
+
 	public:
 		CLmapPersonnel(void);
 		String^ Selectpersonnel(void);
@@ -20,13 +24,19 @@ namespace NS_Composants {
 		String^ DELETE(void);
 
 		void setID(int);
+		void setIDSuperviseur(int);
 		void setNom(String^);
 		void setPrenom(String^);
-		void setAge(int);
-		int getAge(void);
+		void setDateEmbauche(String^);
+		void setDateNaissance(String^);
+
+
 		int getId(void);
+		int geIDSuperviseur(void);
 		String^ getNom(void);
 		String^ getPrenom(void);
+		String^ getDateEmbauche(void);
+		String^ getDateNaissance(void);
 
 	};
 

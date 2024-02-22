@@ -6,22 +6,22 @@ namespace NS_Composants {
 		this->ID_Client = -1;
 		this->Nom_Client = "RIEN";
 		this->Prenom_Client = "RIEN";
-		this->Adress_Client = "RIen";
 		this->Telephone_Client = "RIEN";
-		this->Pays_Client = "RIEN";
+        this->Date_de_naissance = DateTime::MinValue;
+        this->Date_du_prm_achat = DateTime::MinValue;
 	}
 	String^ CLmapClient::SelectClient() {
-		return "SELECT ID_Client, Nom_Client, Prenom_Client,Adress_Client,Telephone_Client, Pays_Client" +
+		return "SELECT ID_Client, Nom_Client, Prenom_Client,Date_de_naissance,Telephone_Client, Date_du_prm_achat" +
 			"FROM Client;";
 	}
     String^ CLmapClient::INSERT(void) {
         return "INSERT INTO Client " +
-            "(Nom_Client, Prenom_Client,Adress_Client,Telephone_Client,Pays_Client), " +
-            "VALUES('" + this->getNom() + "', '" + this->getPrenom() + "', '" + this->getAdress() + "', '" + this->getTelephone() + "', '" + this->getPays() + "');SELECT @@IDENTITY;";
+            "(Nom_Client, Prenom_Client,Date_de_naissance,Telephone_Client,Date_du_prm_achat), " +
+            "VALUES('" + this->getNom() + "', '" + this->getPrenom() + "', '" + this->getDateNaissance() + "', '" + this->getTelephone() + "', '" + this->getDatePrmAchat() + "');SELECT @@IDENTITY;";
     }
     String^ CLmapClient::UPDATE(void) {
         return "UPDATE Client " +
-            "SET Nom_Client = '" + this->getNom() + "', Prenom_Client = '" + this->getPrenom() + "',Adress_Client = '" + this->getAdress() + "',Telephone_Client = '" + this->getTelephone() + "',Pays_Client = '" + this->getPays() + "' " +
+            "SET Nom_Client = '" + this->getNom() + "', Prenom_Client = '" + this->getPrenom() + "',Date_de_naissance = '" + this->getDateNaissance() + "',Telephone_Client = '" + this->getTelephone() + "',Date_du_prm_achat = '" + this->getDatePrmAchat() + "' " +
             "WHERE(ID_Client = " + this->getId() + ");";
     }
     String^ CLmapClient::DELETE(void) {
@@ -47,10 +47,10 @@ namespace NS_Composants {
             this->Nom_Client = Nom_Client;
         }
     }
-    void CLmapClient::setAdress(String^ Adress_Client) {
-        if (Adress_Client != "")
+    void CLmapClient::setDateNaissance(DateTime Date_de_naissance) {
+        if (Date_de_naissance != DateTime::MinValue)
         {
-            this->Adress_Client = Adress_Client;
+            this->Date_de_naissance = Date_de_naissance;
         }
     }
     void CLmapClient::setTelephone(String^ Telephone_Client) {
@@ -59,10 +59,10 @@ namespace NS_Composants {
             this->Telephone_Client = Telephone_Client;
         }
     }
-    void CLmapClient::setPays(String^ Pays_Client) {
-        if (Pays_Client != "")
+    void CLmapClient::setDatePrmAchat(DateTime Date_du_prm_achat) {
+        if (Date_du_prm_achat != DateTime::MinValue)
         {
-            this->Pays_Client = Pays_Client;
+            this->Date_du_prm_achat = Date_du_prm_achat;
         }
     }
 
@@ -78,11 +78,11 @@ namespace NS_Composants {
     String^ CLmapClient::getTelephone(void) {
         return this->Telephone_Client;
     }
-    String^ CLmapClient::getAdress(void) {
-        return this->Adress_Client;
+    DateTime CLmapClient::getDateNaissance(void) {
+        return this->Date_de_naissance;
     }
-    String^ CLmapClient::getPays(void) {
-        return this->Pays_Client;
+    DateTime CLmapClient::getDatePrmAchat(void) {
+        return this->Date_du_prm_achat;
     }
 
 

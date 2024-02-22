@@ -128,24 +128,43 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="clients.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="CLmapAdress.h" />
     <ClInclude Include="CLmapClient.h" />
+    <ClInclude Include="CLmapCommande.h" />
+    <ClInclude Include="CLmapModePaiment.h" />
     <ClInclude Include="CLmapPersonnel.h" />
     <ClInclude Include="CLmapProduit.h" />
+    <ClInclude Include="CLsvcGestionClient.h" />
+    <ClInclude Include="CLsvcGestionPersonnel.h" />
     <ClInclude Include="CL_CAD.h" />
+    <ClInclude Include="Commandes.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Personnel.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Resource.h" />
-    <ClInclude Include="User_Liste_Client.h">
-      <FileType>CppControl</FileType>
+    <ClInclude Include="stock.h">
+      <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="CLmapAdress.cpp" />
     <ClCompile Include="CLmapClient.cpp" />
+    <ClCompile Include="CLmapCommande.cpp" />
+    <ClCompile Include="CLmapModePaiment.cpp" />
     <ClCompile Include="CLmapPersonnel.cpp" />
     <ClCompile Include="CLmapProduit.cpp" />
+    <ClCompile Include="CLsvcGestionClient.cpp" />
+    <ClCompile Include="CLsvcGestionPersonnel.cpp" />
     <ClCompile Include="CL_CAD.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="pch.cpp">
@@ -155,7 +174,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="POO.cpp" />
-    <ClCompile Include="User_Liste_Client.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />
@@ -168,8 +186,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="clients.resx">
+      <DependentUpon>clients.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personnel.resx">
+      <DependentUpon>Personnel.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

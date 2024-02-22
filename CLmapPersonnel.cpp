@@ -1,35 +1,33 @@
 #include "pch.h"
-
 #include "CLmapPersonnel.h"
 
+namespace NS_Composants {
 
-
-namespace NS_Composants{
-
-
-    CLmapPersonnel::CLmapPersonnel(void){
+    CLmapPersonnel::CLmapPersonnel(void) {
         this->ID_Personnel = -1;
         this->Nom_Personnel = "RIEN";
         this->Prenom_Personnel = "RIEN";
-        this->Age_Personnel = 0;
+        this->Date_de_naissance = "RIEN";
+        this->Date_embauche = "RIEN";
+        this->ID_Superviseur = -1;
+
     }
+
     String^ CLmapPersonnel::Selectpersonnel(void) {
-        return "SELECT ID_Personnel, Nom_Personnel, Prenom_Personnel,Age_Personnel " +
-            "FROM Personnel;";
+        return "SELECT * FROM Personnel;";
     }
-    String^ CLmapPersonnel::INSERT(void){
-        return "INSERT INTO Personnel " +
-            "(Nom_Personnel, Prenom_Personnel,Age_Personnel) " +
-            "VALUES('" + this->getNom() + "', '" + this->getPrenom() + "');SELECT @@IDENTITY;";
+
+    String^ CLmapPersonnel::INSERT(void) {
+        return "INSERT INTO Personnel ( Nom_personnel, Prenom_personnel, Date_de_naissance, Date_d_ambauche, ID_Superieur)" +
+                "VALUES('" + this->getNom() + "', '" + this->getPrenom() + "', '" + this->getDateNaissance() + "', '" + this->getDateEmbauche() + "', '" + this->geIDSuperviseur() + "');SELECT @@IDENTITY;";
     }
-    String^ CLmapPersonnel::UPDATE(void){
-        return "UPDATE Personnel " +
-            "SET Nom_Personnel = '" + this->getNom() + "', Prenom_Personnel = '" + this->getPrenom() + "' " +
-            "WHERE(ID_Personnel = " + this->getId() + ");";
+
+    String^ CLmapPersonnel::UPDATE(void) {
+        return "UPDATE Personnel SET Nom_Personnel = '" + this->getNom() + "', Prenom_Personnel = '" + this->getPrenom() + "', Date_de_naissance = '" + this->getDateNaissance() + "', ID_Superviseur = " + this->geIDSuperviseur() + ", Date_d_embauche = '" + this->getDateEmbauche() + "' WHERE(ID_Personnel = " + this->getId() + ");";
     }
+
     String^ CLmapPersonnel::DELETE(void) {
-        return "DELETE FROM Personnel " +
-            "WHERE(ID_Personnel = " + this->getId() + ");";
+        return "DELETE FROM Personnel WHERE(ID_Personnel = " + this->getId() + ");";
     }
     void CLmapPersonnel::setID(int ID_Personnel) {
         if (ID_Personnel > 0)
@@ -50,13 +48,28 @@ namespace NS_Composants{
             this->Nom_Personnel = Nom_Personnel;
         }
     }
-    void CLmapPersonnel::setAge(int Age_Personnel) {
-        if (Age_Personnel > 0) {
-            this->Age_Personnel = Age_Personnel;
+    void CLmapPersonnel::setDateEmbauche(String^ Date_embauche) {
+        if (Date_embauche != "")
+        {
+            this->Date_embauche = Date_embauche;
+        }
+    }
+    void CLmapPersonnel::setDateNaissance(String^ Date_de_naissance) {
+        if (Date_de_naissance != "")
+        {
+            this->Date_de_naissance = Date_de_naissance;
+        }
+    }
+    void CLmapPersonnel::setIDSuperviseur(int ID_Superviseur) {
+        if (ID_Superviseur > 0) {
+            this->ID_Superviseur = ID_Superviseur;
         }
     }
     int CLmapPersonnel::getId(void){
         return this->ID_Personnel;
+    }
+    int CLmapPersonnel::geIDSuperviseur(void) {
+        return this->ID_Superviseur;
     }
     String^ CLmapPersonnel::getNom(void){
         return this->Nom_Personnel;
@@ -64,8 +77,11 @@ namespace NS_Composants{
     String^ CLmapPersonnel::getPrenom(void){
         return this->Prenom_Personnel;
     }
-    int CLmapPersonnel::getAge(void) {
-        return this->Age_Personnel;
+    String^ CLmapPersonnel::getDateEmbauche(void) {
+        return this->Date_embauche;
+    }
+    String^ CLmapPersonnel::getDateNaissance(void) {
+        return this->Date_de_naissance;
     }
 
 }
